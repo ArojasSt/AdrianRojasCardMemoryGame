@@ -9,7 +9,6 @@ export class PlayService {
     }
 
     getData() {
-
         fetch('').then(resposnse => {
 
             resposnse.json().then(data => {
