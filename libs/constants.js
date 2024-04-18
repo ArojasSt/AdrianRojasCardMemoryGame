@@ -8,6 +8,7 @@ export const DIFFICULTY_STATE = 5;
 export const LOGIN_STATE = 6;
 export const SCORES_STATE = 7;
 export const THEMES_STATE = 8;
+export const RESULTS_STATE = 9;
 
 export const DIFFICULTY_LOW = 4;
 export const DIFFICULTY_MEDIUM = 6;

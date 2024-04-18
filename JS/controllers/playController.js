@@ -1,14 +1,10 @@
 
 import { Controller } from "./controller.js";
-
 import { PlayView } from "../views/playView.js";
-
 import { PlayService } from "../services/playService.js";
 
 export class PlayController extends Controller {
-
     constructor(parent) {
-
         super(parent)
         this.view = new PlayView(parent, this)
         this.service = new PlayService(this);
@@ -19,17 +15,15 @@ export class PlayController extends Controller {
         this.clicks = 0;
         this.card1 = null;
         this.card2 = null;
-
     }
 
     show(cards) {
-
         this.cards = cards;
         this.view.showCards(this.cards);
 
         this.gamePlayTimer = window.setInterval(() => {
 
-            this.gamePlayTime =+ 1;
+            this.gamePlayTime = + 1;
             this.triggerShowCardEvent();
 
         }, 1000);
