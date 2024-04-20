@@ -38,9 +38,8 @@ export class GameManager {
             this.goto(event.detail.state);
         });
 
-        this.currentController = new LoadingController(this.contentContainer);
+        this.currentController = new PlayController(this.contentContainer);
         // this.currentController = new HomeController(this.contentContainer);
-        console.log('HOLA');
     }
 
     goto(state) {
