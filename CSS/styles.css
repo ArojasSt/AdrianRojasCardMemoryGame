@@ -179,6 +179,37 @@ body {
 
 }
 
+.backButton {
+
+    width: 50px;
+    height: 50px;
+    background-color: #f2f2f2; 
+    border: none;
+    border-radius: 5px; 
+    font-size: 16px;
+    color: #000000;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+}
+
+.backButton::before {
+
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #000000;
+    position: absolute;
+    left: 10px; 
+
+}
+
 /* MENU STYLES */
 
 .menu-logo {
@@ -191,7 +222,7 @@ body {
 
 .menu-container {
 
-    margin-top: 50px;
+    margin-top: 20px;
     border: 2px dashed #000;
     display: flex;
     flex-direction: column;

@@ -9,6 +9,7 @@ import { PLAY_STATE } from "../../libs/constants.js";
 
 import { BaseView } from "./baseView.js";
 import { GameButton } from "./gameButton.js";
+import { BackButton } from "./backButton.js";
 
 export class MenuView extends BaseView {
 
@@ -16,6 +17,14 @@ export class MenuView extends BaseView {
 
         super(parent, controller);
         this.className = 'menuView';
+
+        const backButton = new BackButton(this, '', () => {
+
+            controller.handleBack();
+
+        });
+
+        this.insertBefore(backButton, this.firstChild);
 
         const menuContainer = div({ className: 'menu-container' }, this);
 

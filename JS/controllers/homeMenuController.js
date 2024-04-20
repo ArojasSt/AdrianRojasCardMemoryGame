@@ -12,8 +12,18 @@ export class HomeController extends Controller {
     }
 
     navigateToLogin() {
-        this.controller.goto(LOGIN_STATE);
+        let event = new CustomEvent('goto-state', {
+            detail: {
+                state: LOGIN_STATE
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false
+
+        });
+        this.view.dispatchEvent(event);
     }
+
 
     navigateToMenu() {
         let event = new CustomEvent('goto-state', {

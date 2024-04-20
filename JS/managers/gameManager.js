@@ -88,6 +88,7 @@ export class GameManager {
                 this.appTitle.innerHTML = 'DIFFICULTY';
                 break;
             case RESULTS_STATE:
+                this.appTitle.innerHTML = 'RESULTS';
                 break;
             case PLAY_STATE:
                 this.appTitle.innerHTML = 'PLAY';

@@ -1,7 +1,7 @@
 
 import { Controller } from "./controller.js";
 import { MenuView } from "../views/menuView.js";
-import { PLAY_STATE, SCORES_STATE, DIFFICULTY_STATE, THEMES_STATE, CREDITS_STATE } from "../../libs/constants.js";
+import { PLAY_STATE, SCORES_STATE, DIFFICULTY_STATE, THEMES_STATE, CREDITS_STATE, HOME_STATE } from "../../libs/constants.js";
 
 export class MenuController extends Controller {
 
@@ -14,44 +14,92 @@ export class MenuController extends Controller {
 
     handleBack() {
 
-        console.log('Going back to main menu...');
-        this.goto(HOME_STATE);
+        let event = new CustomEvent('goto-state', {
+            detail: {
+                state: HOME_STATE
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false
+
+        });
+        this.view.dispatchEvent(event);
         
     }
 
     handlePlay() {
 
-        console.log('Going to play state...');
-        this.goto(PLAY_STATE);
+        let event = new CustomEvent('goto-state', {
+            detail: {
+                state: PLAY_STATE
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false
+
+        });
+        this.view.dispatchEvent(event);
 
     }
 
     handleScores() {
 
-        console.log('Going to scores state...');
-        this.goto(SCORES_STATE);
+        let event = new CustomEvent('goto-state', {
+            detail: {
+                state: SCORES_STATE
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false
+
+        });
+        this.view.dispatchEvent(event);
 
     }
 
     handleDifficulty() {
 
-        console.log('Going to difficulty state...');
-        this.goto(DIFFICULTY_STATE);
+        let event = new CustomEvent('goto-state', {
+            detail: {
+                state: DIFFICULTY_STATE
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false
+
+        });
+        this.view.dispatchEvent(event);
 
     }
 
     handleThemes() {
 
-        console.log('Going to themes state...');
-        this.goto(THEMES_STATE);
+        let event = new CustomEvent('goto-state', {
+            detail: {
+                state: THEMES_STATE
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false
+
+        });
+        this.view.dispatchEvent(event);
 
     }
 
     handleCredits() {
 
-        console.log('Going to credits state...');
-        this.goto(CREDITS_STATE);
+        let event = new CustomEvent('goto-state', {
+            detail: {
+                state: CREDITS_STATE
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false
 
+        });
+        this.view.dispatchEvent(event);
     }
+
 
 }
