@@ -2,19 +2,26 @@
 import { BaseView } from "./baseView.js";
 import { BackButton } from "./backButton.js";
 
+import { div } from "../../libs/html.js";
+import { h1 } from "../../libs/html.js";
+import { img } from "../../libs/html.js";
+
 export class CreditsView extends BaseView {
 
     constructor(parent, controller) {
+
         super(parent, controller);
         this.className = 'creditsView';
 
-        // Agregar botón de regreso
-        new BackButton(this, "Back", this.controller.handleBack.bind(this.controller));
+        const backButton = new BackButton(this, '', () => {
 
-        // Contenedor para los créditos
-        const creditsContainer = document.createElement('div');
-        creditsContainer.className = 'credits-container';
-        this.appendChild(creditsContainer);
+            controller.handleBack();
+
+        });
+
+        this.insertBefore(backButton, this.firstChild);
+
+        const creditsContainer = div({ className: 'credits-container' }, this);
 
         h1({ innerHTML: 'EMOJI', className: 'home-menu-title' }, creditsContainer);
 
@@ -29,20 +36,12 @@ export class CreditsView extends BaseView {
         h1({ innerHTML: 'MEMORY', className: 'home-menu-subtitle1' }, creditsContainer);
         h1({ innerHTML: 'GAME', className: 'home-menu-subtitle2' }, creditsContainer);
 
-        // Agregar h1 con el nombre de la universidad
-        const universityName = document.createElement('h1');
-        universityName.textContent = 'Nombre de la Universidad';
-        creditsContainer.appendChild(universityName);
+        h1({ innerHTML: 'UNIVERSIDAD CENFOTEC', className: 'home-menu-subtitle1 universidad-title' }, creditsContainer);
 
-        // Agregar h1 con el nombre del curso
-        const courseName = document.createElement('h1');
-        courseName.textContent = 'Nombre del Curso';
-        creditsContainer.appendChild(courseName);
+        h1({ innerHTML: 'DIWEB-09', className: 'home-menu-subtitle1' }, creditsContainer);
 
-        // Agregar h1 con el nombre del estudiante
-        const studentName = document.createElement('h1');
-        studentName.textContent = 'Tu Nombre';
-        creditsContainer.appendChild(studentName);
+        h1({ innerHTML: 'Adrián Rojas', className: 'home-menu-subtitle1' }, creditsContainer);
+
     }
 }
 

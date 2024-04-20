@@ -319,6 +319,25 @@ body {
 
 }
 
+/* CREDITS STYLES */
+
+.credits-container {
+
+    margin-top: 20px;
+    border: 2px dashed #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.universidad-title {
+
+    color:#2C33DF;
+
+}
+
 
 
 
