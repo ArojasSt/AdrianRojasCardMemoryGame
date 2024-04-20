@@ -5,7 +5,7 @@ import { LoadingController } from '../controllers/loadingController.js';
 import { HomeController } from '../controllers/homeMenuController.js';
 import { MenuController } from '../controllers/menuController.js';
 
-import { HOME_STATE, MENU_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCORES_STATE, THEMES_STATE, PLAY_STATE, RESULTS_STATE, LOADING_STATE } from '../../libs/constants.js';
+import { HOME_STATE, MENU_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCORES_STATE, THEMES_STATE, PLAY_STATE, RESULTS_STATE } from '../../libs/constants.js';
 
 import { PlayController } from '../controllers/playController.js';
 import { CreditsController } from '../controllers/creditsController.js';
@@ -18,6 +18,10 @@ export class GameManager {
         this.mainContainer = div({ className: "mainContainer" }, document.body);
         this.contentContainer = div({ className: "contentContainer" }, this.mainContainer);
         this.currentController = null;
+
+        this.backBtn = div({ className: '.navbarContainer-backBtn' }, this.navbarContainer)
+        img({ className: '.navbarContainer-backArrow' }, this.backBtn);
+        this.appTitle = span({ className: 'navbarContainer-title', innerHTML: 'NAVBAR' }, this.navbarContainer);
 
         //EventListeners
         this.mainContainer.addEventListener("loading-completed", (event) => {
@@ -37,6 +41,7 @@ export class GameManager {
         });
 
         this.currentController = new LoadingController(this.contentContainer);
+        // this.currentController = new HomeController(this.contentContainer);
     }
 
     goto(state) {
@@ -46,11 +51,20 @@ export class GameManager {
             this.currentController = null;
         }
 
-        switch (state) {
+        if (state === MENU_STATE ||
+            state === LOGIN_STATE ||
+            state === SCORES_STATE ||
+            state === DIFFICULTY_STATE ||
+            state === THEMES_STATE ||
+            state === CREDITS_STATE) {
 
-            case LOADING_STATE:
-                this.currentController = new LoadingController(this.contentContainer);
-                break;
+            this.backBtn.classList.remove('hidden');
+
+        } else {
+            this.backBtn.classList.add('hidden');
+        }
+
+        switch (state) {
             case HOME_STATE:
                 this.appTitle.innerHTML = 'HOME';
                 this.currentController = new HomeController(this.contentContainer);

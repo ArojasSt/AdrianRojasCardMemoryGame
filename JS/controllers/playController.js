@@ -4,6 +4,7 @@ import { Controller } from "./controller.js";
 import { PlayView } from "../views/playView.js";
 
 import { PlayService } from "../services/playService.js";
+import { MENU_STATE } from "../../libs/constants.js";
 
 export class PlayController extends Controller {
 
@@ -184,6 +185,21 @@ export class PlayController extends Controller {
         window.clearInterval(this.gamePlayTimer);
         this.gamePlayTimer = null;
 
+    }
+
+    handleBack() {
+
+        let event = new CustomEvent('goto-state', {
+            detail: {
+                state: MENU_STATE
+            },
+            bubbles: true,
+            cancelable: true,
+            composed: false
+
+        });
+        this.view.dispatchEvent(event);
+        
     }
 
 }
