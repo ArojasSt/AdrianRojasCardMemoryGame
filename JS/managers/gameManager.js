@@ -8,6 +8,7 @@ import { MenuController } from '../controllers/menuController.js';
 import { HOME_STATE, MENU_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCORES_STATE, THEMES_STATE, LOADING_STATE } from '../../libs/constants.js';
 
 import { PlayController } from '../controllers/playController.js';
+import { CreditsController } from '../controllers/creditsController.js';
 
 export class GameManager {
 
@@ -38,7 +39,7 @@ export class GameManager {
             this.goto(event.detail.state);
         });
 
-        this.currentController = new PlayController(this.contentContainer);
+        this.currentController = new LoadingController(this.contentContainer);
         // this.currentController = new HomeController(this.contentContainer);
     }
 
@@ -79,6 +80,7 @@ export class GameManager {
                 break;
             case CREDITS_STATE:
                 this.appTitle.innerHTML = 'CREDITS';
+                this.currentController = new CreditsController(this.contentContainer);
                 break;
             case THEMES_STATE:
                 this.appTitle.innerHTML = 'THEMES';

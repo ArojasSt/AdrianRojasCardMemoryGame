@@ -1,6 +1,4 @@
 
-import { LOGIN_STATE, MENU_STATE } from "../../libs/constants.js";
-
 import { div } from "../../libs/html.js";
 import { h1 } from "../../libs/html.js";
 import { img } from "../../libs/html.js";
@@ -11,7 +9,7 @@ import { GameButton } from "./gameButton.js";
 
 export class HomeView extends BaseView {
 
-    constructor(parent, controller, gameManager) {
+    constructor(parent, controller) {
 
         super(parent, controller);
         this.className = 'HomeView';
