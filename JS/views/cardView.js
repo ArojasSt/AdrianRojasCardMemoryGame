@@ -1,4 +1,5 @@
 
+import { img } from "../../libs/html.js";
 import { BaseView } from "./baseView.js";
 
 export class CardView extends BaseView {
@@ -31,19 +32,45 @@ export class CardView extends BaseView {
 
         });
 
+        this.image = img({src: `../../${this.card.emoji}.png`}, this);
+
     }
 
     show() {
 
-        gsap.to(this, { scale: 1.1, duration: 0.15, ease: "expo.in", yoyo: true, repeat: 1 });
-        this.innerHTML = this.card.emoji;
+        gsap.to(this, { rotationY: 180, duration: 1, ease: "expo.in", onComplete: () => {
+
+            if (this.card.isImage) {
+
+                this.image.classList.remove('hidden');
+    
+            } else {
+    
+                this.innerHTML = this.card.emoji;
+    
+            }
+
+        } });
 
     }
 
     hide() {
 
         this.card.isSelected = false;
-        this.innerHTML = '';
+
+        gsap.to(this, { rotationY: 0, duration: 1, ease: "expo.in", onComplete: () => {
+
+            if (this.card.isImage) {
+
+                this.image.classList.remove('hidden');
+    
+            } else {
+    
+                this.innerHTML = this.card.emoji;
+    
+            }
+
+        } });
 
     }
 
@@ -51,6 +78,7 @@ export class CardView extends BaseView {
 
         if (this.card.isDiscovered) {
 
+            gsap.to(this.image, {duration: 0.1, ease: "bounce.out", scale: 1.1, yoyo: true, repeat: 5});
             this.classList.add('cardView-discovered');
 
         } else {

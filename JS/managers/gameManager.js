@@ -10,6 +10,7 @@ import { HOME_STATE, MENU_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, S
 import { PlayController } from '../controllers/playController.js';
 import { CreditsController } from '../controllers/creditsController.js';
 import { LevelController } from '../controllers/levelController.js';
+import { LoginController } from '../controllers/loginController.js';
 
 export class GameManager {
 
@@ -75,6 +76,7 @@ export class GameManager {
                 break;
             case LOGIN_STATE:
                 this.appTitle.innerHTML = 'LOGIN';
+                this.currentController = new LoginController(this.contentContainer);
                 break;
             case SCORES_STATE:
                 this.appTitle.innerHTML = 'SCORES';

@@ -9,7 +9,7 @@ export class PlayService {
     }
 
     getData() {
-        fetch('http://localhost:4000').then(resposnse => {
+        fetch('http://localhost:4000/cards/4/faces').then(resposnse => {
 
             resposnse.json().then(data => {
 

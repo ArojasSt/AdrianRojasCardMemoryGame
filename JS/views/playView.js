@@ -1,5 +1,6 @@
 
 import { div } from "../../libs/html.js";
+import { h1 } from "../../libs/html.js";
 
 import { BaseView } from "./baseView.js";
 import { CardView } from "./cardView.js"
@@ -22,6 +23,7 @@ export class PlayView extends BaseView {
         this.insertBefore(backButton, this.firstChild);
 
         this.cardsContainer = div({ className: 'playView-cardsContainer'}, this);
+
         this.cardViews = [];
 
     }
