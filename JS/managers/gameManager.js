@@ -5,7 +5,11 @@ import { LoadingController } from '../controllers/loadingController.js';
 import { HomeController } from '../controllers/homeMenuController.js';
 import { MenuController } from '../controllers/menuController.js';
 
+<<<<<<< HEAD
 import { HOME_STATE, MENU_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCORES_STATE, THEMES_STATE, PLAY_STATE, RESULTS_STATE } from '../../libs/constants.js';
+=======
+import { HOME_STATE, MENU_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCORES_STATE, THEMES_STATE, LOADING_STATE, PLAY_STATE, RESULTS_STATE } from '../../libs/constants.js';
+>>>>>>> 48d25389ae9dbe62352be7b1fcffdeecb2ff755a
 
 import { PlayController } from '../controllers/playController.js';
 import { CreditsController } from '../controllers/creditsController.js';
@@ -41,8 +45,13 @@ export class GameManager {
             this.goto(event.detail.state);
         });
 
-        this.currentController = new LoadingController(this.contentContainer);
+        // this.currentController = new LoadingController(this.contentContainer);
         // this.currentController = new HomeController(this.contentContainer);
+<<<<<<< HEAD
+=======
+        // this.goto(LOADING_STATE);
+        this.goto(PLAY_STATE);
+>>>>>>> 48d25389ae9dbe62352be7b1fcffdeecb2ff755a
     }
 
     goto(state) {
@@ -57,15 +66,17 @@ export class GameManager {
             state === SCORES_STATE ||
             state === DIFFICULTY_STATE ||
             state === THEMES_STATE ||
+            state === PLAY_STATE ||
             state === CREDITS_STATE) {
-
             this.backBtn.classList.remove('hidden');
-
         } else {
             this.backBtn.classList.add('hidden');
         }
 
         switch (state) {
+            case LOADING_STATE:
+                this.currentController = new LoadingController(this.contentContainer);
+                break;
             case HOME_STATE:
                 this.appTitle.innerHTML = 'HOME';
                 this.currentController = new HomeController(this.contentContainer);
