@@ -11,7 +11,7 @@ import { BackButton } from "./backButton.js";
 
 export class LevelView extends BaseView {
 
-    constructor (parent, controller) {
+    constructor(parent, controller) {
 
         super(parent, controller);
         this.className = 'levelView';
@@ -34,7 +34,7 @@ export class LevelView extends BaseView {
 
         }, levelContainer);
 
-        const buttonsContainer = div({ className: 'menu-buttons-container' }, levelContainer); 
+        const buttonsContainer = div({ className: 'menu-buttons-container' }, levelContainer);
 
         new GameButton(buttonsContainer, 'LOW', () => {
 
@@ -55,5 +55,6 @@ export class LevelView extends BaseView {
         });
 
     }
-
 }
+
+customElements.define('level-view', LevelView);

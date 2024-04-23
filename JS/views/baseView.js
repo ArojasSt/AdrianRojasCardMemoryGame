@@ -2,7 +2,6 @@
 export class BaseView extends HTMLElement {
 
     constructor(parent, controller = null) {
-
         super();
         this.parent = parent;
         this.controller = controller;
@@ -12,11 +11,8 @@ export class BaseView extends HTMLElement {
     }
 
     delete() {
-
         this.parent.removeChild(this);
-
     }
-
 }
 
 customElements.define("base-view", BaseView);

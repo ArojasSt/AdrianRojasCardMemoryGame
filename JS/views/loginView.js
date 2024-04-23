@@ -36,7 +36,7 @@ export class LoginView extends BaseView {
 
         this.userNameIn = input({ className: 'loginView-userNameIn' }, this);
 
-        let saveBtn = new GameButton(this, 'SAVE', () => {this.onGameButtonClick()});
+        let saveBtn = new GameButton(this, 'SAVE', () => { this.onGameButtonClick() });
         saveBtn.classList.add('gameButton');
 
     }
@@ -45,7 +45,7 @@ export class LoginView extends BaseView {
 
         let username = this.userNameIn.value;
 
-        if(username !== '') {
+        if (username !== '') {
 
             this.controller.saveUserName(username);
 
@@ -56,7 +56,7 @@ export class LoginView extends BaseView {
                 bubbles: true,
                 cancelable: true,
                 composed: false
-    
+
             });
             this.view.dispatchEvent(event);
 
@@ -69,3 +69,5 @@ export class LoginView extends BaseView {
     }
 
 }
+
+customElements.define('login-view', LoginView);

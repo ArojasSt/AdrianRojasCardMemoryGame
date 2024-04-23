@@ -12,7 +12,7 @@ import { MENU_STATE } from "../../libs/constants.js";
 
 export class ThemeView extends BaseView {
 
-    constructor (parent, controller) {
+    constructor(parent, controller) {
 
         super(parent, controller);
         this.className = 'levelView';
@@ -38,7 +38,7 @@ export class ThemeView extends BaseView {
         h1({ innerHTML: 'THEMES', className: 'home-menu-title' }, themesContainer);
 
 
-        const buttonsContainer = div({ className: 'menu-buttons-container' }, themesContainer); 
+        const buttonsContainer = div({ className: 'menu-buttons-container' }, themesContainer);
 
         let facesBtn = new GameButton(this, "FACES", () => {
 
@@ -88,6 +88,8 @@ export class ThemeView extends BaseView {
         });
         this.dispatchEvent(event);
 
-    } 
+    }
 
 }
+
+customElements.define('theme-view', ThemeView);
