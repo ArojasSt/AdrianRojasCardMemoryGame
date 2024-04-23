@@ -5,11 +5,7 @@ import { LoadingController } from '../controllers/loadingController.js';
 import { HomeController } from '../controllers/homeMenuController.js';
 import { MenuController } from '../controllers/menuController.js';
 
-<<<<<<< HEAD
-import { HOME_STATE, MENU_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCORES_STATE, THEMES_STATE, PLAY_STATE, RESULTS_STATE } from '../../libs/constants.js';
-=======
 import { HOME_STATE, MENU_STATE, CREDITS_STATE, DIFFICULTY_STATE, LOGIN_STATE, SCORES_STATE, THEMES_STATE, LOADING_STATE, PLAY_STATE, RESULTS_STATE } from '../../libs/constants.js';
->>>>>>> 48d25389ae9dbe62352be7b1fcffdeecb2ff755a
 
 import { PlayController } from '../controllers/playController.js';
 import { CreditsController } from '../controllers/creditsController.js';
@@ -47,11 +43,8 @@ export class GameManager {
 
         // this.currentController = new LoadingController(this.contentContainer);
         // this.currentController = new HomeController(this.contentContainer);
-<<<<<<< HEAD
-=======
         // this.goto(LOADING_STATE);
         this.goto(PLAY_STATE);
->>>>>>> 48d25389ae9dbe62352be7b1fcffdeecb2ff755a
     }
 
     goto(state) {
@@ -133,10 +126,6 @@ export class GameManager {
             this.goto(HOME_STATE);
         }
     }
-
-
-
-
 
     onResetBtn() {
         this.timeLbl.innerHTML = 0;
